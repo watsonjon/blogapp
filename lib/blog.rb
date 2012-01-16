@@ -1,9 +1,11 @@
 require 'sinatra/base'
 require 'ostruct'
 require 'time'
+require 'yaml'
 
 class Blog < Sinatra::Base
   set :root, File.expand_path('../../', __FILE__)
+  set :articles, []
   
   # loop through all the article files
   Dir.glob "#{root}/articles/*.md" do |file|
@@ -39,3 +41,5 @@ class Blog < Sinatra::Base
     erb :index
   end
 end
+
+# Blog.run!
