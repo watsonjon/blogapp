@@ -6,6 +6,7 @@ require 'yaml'
 class Blog < Sinatra::Base
   set :root, File.expand_path('../../', __FILE__)
   set :articles, []
+  set :app_file, __FILE__
   
   # loop through all the article files
   Dir.glob "#{root}/articles/*.md" do |file|
